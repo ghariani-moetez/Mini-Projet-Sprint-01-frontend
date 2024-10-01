@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Categories </label>
+    <select class="form-control form-control-lg" id="idCat" name="idCat"
+    [(ngModel)]="IdDepartement" (change)="onChange()">
+    <option *ngFor="let dep of departements" value="{{dep.idDep}}">
+    {{dep.nomDep}}
+     </option>
+    </select>
+    </div>
+  <div class="card shadow mb-4">
+  <div class="card-body">
+  <table class="table table-striped">
+  <tr> <th>Id</th><th>Nom</th> <th>Salaire</th> <th>Date Emabauche</th> <th>Departement</th> </tr>
+  <tbody *ngFor="let e of employees">
+  <tr >
+    <td>{{e.idEmployee}}</td>
+    <td>{{e.nomEmployee}}</td>
+    <td>{{e.salaire}}</td>
+    <td>{{e.dateEmbauche | date:'dd/MM/yyyy'}}</td>
+     <td>{{e.departement?.nomDep}}</td>
+    <!-- <td><a class="btn btn-danger" (click)="supprimerEmployee(e)">Supprimer</a></td>
+    <td><a class="btn btn-success" [routerLink]="['/update-employee',e.idEmployee]">Modifier</a></td> -->
+  </tr>
+  </tbody>
+  </table>
+  </div>
+  </div>
+  </div>
